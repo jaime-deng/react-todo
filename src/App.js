@@ -1,24 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//@flow
+import React from "react";
+import { Route, Switch } from "react-router-dom"
+import ThemeSwitcher from "./ThemeSwitcher";
 
-function App() {
+
+
+import Home from "./Home"
+import About from "./About"
+import Navbar from "./Navbar"
+import Error from "./Error"
+import API from "./API"
+
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div className="">
+      {/* <ThemeSwitcher /> */}
+      <Navbar />
+      <Switch>
+        <Route path="/" component={Home} exact />
+        <Route path="/About" component={About} />
+        <Route path="/API" component={API} />
+        <Route component={Error} />
+      </Switch>
     </div>
   );
 }
